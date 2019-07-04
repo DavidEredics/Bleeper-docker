@@ -1,0 +1,4 @@
+[submodule "Bleeper"]
+	path = Bleeper
+	url = https://github.com/DavidEredics/Bleeper.git
+	branch = develop
