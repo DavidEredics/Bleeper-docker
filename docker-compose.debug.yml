@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  bleeper-dev:
+    image: bleeper:dev
+    build: .
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://mongo/Bleeper-dev
+      jwtSecret: debug
+    ports:
+      - 8443:8443
+      - 9229:9229
+    depends_on:
+      - mongo
+    command: node --inspect server.js
+  mongo:
+    image: mongo:latest

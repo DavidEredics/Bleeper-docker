@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  sut:
+    image: bleeper:dev
+    build: .
+    environment:
+      NODE_ENV: test
+      MONGODB_URI: mongodb://mongo/Bleeper-test
+      jwtSecret: debug
+    ports:
+      - 8443:8443
+    depends_on:
+      - mongo
+    command: npm test
+  mongo:
+    image: mongo:latest
